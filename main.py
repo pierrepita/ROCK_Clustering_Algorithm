@@ -21,7 +21,7 @@ dps.append(DataPoint('c',c))
 dps.append(DataPoint('d',d))
 dps.append(DataPoint('e',e))
 
-rock = RockAlgorithm(dps,3,0.2)
+rock = RockAlgorithm(dps,1,0.2)
 dnd = rock.cluster()
 
 dnd.inspect_all()
