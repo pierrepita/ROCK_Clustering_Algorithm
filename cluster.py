@@ -1,6 +1,8 @@
 #!/usr/bin/python
 #-*- coding:utf-8 -*-
 
+import ast
+
 __author__='Anry Yang'
 
 class Cluster:
@@ -26,8 +28,20 @@ class Cluster:
     return self.elements
 
   def inspect(self):
+    result = []
     for e in self.elements:
-      print '\t\t'+e.inspect()
+      result.append(e.inspect())
+#       print '\t\t'+e.inspect()
+    return result
+
+  def get_data_points(self):
+    result = []
+    for e in self.elements:
+        element = e.inspect()
+        jdict = ast.literal_eval(element)
+        key = jdict.keys()[0]
+        result.append(key)
+    return result     
 
   def size(self):
     return len(self.elements)
